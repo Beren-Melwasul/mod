@@ -86,3 +86,271 @@ attribute = diplomacy
 	
 	events = { 007 008 }
 }
+
+EVENTS (action_spread_tensions) : 
+# 08111996 : The Rebellion has Begun...
+character_event = {
+	id = 08111996
+	title = EVTNAME08111996
+	desc = EVTDESC08111996
+	picture = GFX_evt_peasants
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_spread_tensions
+		NOT = { has_character_modifier = in_seclusion }
+		location = {
+			owner = {
+				job_adventurer = {
+					character = ROOT
+				}
+			}
+			NOT = { has_province_modifier = light_rebellion }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	
+		modifier = {
+			factor = 1.25
+			NOT = { martial = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { martial = 3 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { martial = 4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { martial = 5 }
+		}
+		modifier = {
+			factor = 0.75
+			martial = 10
+		}
+		modifier = {
+			factor = 0.75
+			martial = 11
+		}
+		modifier = {
+			factor = 0.75
+			martial = 12
+		}
+		modifier = {
+			factor = 0.75
+			martial = 13
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { diplomacy = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { diplomacy = 3 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { diplomacy = 4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { diplomacy = 5 }
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 10
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 11
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 12
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 13
+		}
+	}
+	
+	option = {
+		name = EVTOPTA08111996
+		location = {
+			add_province_modifier = {
+				name = light_rebellion
+				duration = 365
+			}
+		}
+		prestige = 50
+		liege = {
+			letter_event = { id = 14031996 tooltip = EVTTOOLTIP14031996 days = 1 }
+		}
+	}
+}
+	
+# 14031996: Liege informed
+character_event = {
+	id = 14031996
+	name = EVTNAME14031996
+	desc = EVTDESC14031996
+	picture = GFX_evt_peasants
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+		option = { 
+		name = EVTOPTA14031996
+			FROM = {
+				location = {
+					add_province_modifier = {
+						name = light_rebellion
+						duration = 365
+					}
+				}
+			}
+		}
+	}
+
+
+# 190713 : Civil War is at their Gates! 
+character_event = {
+	id = 190713
+	title = EVTNAME190713
+	desc = EVTDESC190713
+	picture = GFX_evt_peasants
+	
+	min_age = 16
+	capable_only = yes
+	prisoner = no
+	
+	trigger = {
+		has_job_action = action_spread_tensions
+		NOT = { has_character_modifier = in_seclusion }
+		location = {
+			owner = {
+				job_adventurer = {
+					character = ROOT
+				}
+			}
+			NOT = { has_province_modifier = great_rebellion }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 180
+	
+		modifier = {
+			factor = 1.25
+			NOT = { martial = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { martial = 3 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { martial = 4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { martial = 5 }
+		}
+		modifier = {
+			factor = 0.75
+			martial = 10
+		}
+		modifier = {
+			factor = 0.75
+			martial = 11
+		}
+		modifier = {
+			factor = 0.75
+			martial = 12
+		}
+		modifier = {
+			factor = 0.75
+			martial = 13
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { diplomacy = 2 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { diplomacy = 3 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { diplomacy = 4 }
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { diplomacy = 5 }
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 10
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 11
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 12
+		}
+		modifier = {
+			factor = 0.75
+			diplomacy = 13
+		}
+	}
+	
+	option = {
+		name = EVTOPTA190713
+		location = {
+			add_province_modifier = {
+				name = great_rebellion
+				duration = 365
+			}
+		}
+		prestige = 50
+		liege = {
+			character_event = { id = 130719 tooltip = EVTTOOLTIP130719 days = 1 }
+		}
+	}
+}
+	
+
+# 130719: Liege informed
+character_event = {
+	id = 130719
+	name = EVTNAME130719
+	desc = EVTDESC130719
+	picture = GFX_evt_peasants
+	
+	is_triggered_only = yes
+	
+	notification = yes
+	
+		option = { 
+		name = "EVTOPTA130719" 
+			FROM = {
+				location = {
+					add_province_modifier = {
+						name = great_rebellion
+						duration = 365
+					}
+				}
+			}
+		}
+	}
+
